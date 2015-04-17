@@ -34,14 +34,18 @@ optimize table alerts;
 
 truncate table housekeeper; 
 optimize table housekeeper;
+update zabbix.ids set nextid = 1 where tablename = 'housekeeper';
 
 truncate table acknowledges; 
-optimize table acknowledges;    
+optimize table acknowledges;
+update zabbix.ids set nextid = 1 where tablename = 'acknowledges';    
 
 truncate table auditlog; 
 optimize table auditlog;
+update zabbix.ids set nextid = 1 where tablename = 'auditlog';  
 
 truncate table auditlog_details; 
 optimize table auditlog_details; 
+update zabbix.ids set nextid = 1 where tablename = 'auditlog_details';  
 
 SET FOREIGN_KEY_CHECKS = 1;
