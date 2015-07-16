@@ -20,19 +20,19 @@ optimize table alerts;
 
 truncate table housekeeper; 
 optimize table housekeeper;
-update zabbix.ids set nextid = 1 where tablename = 'housekeeper'; 
+update zabbix.ids set nextid = 1 where table_name = 'housekeeper'; 
 
 truncate table acknowledges; 
 optimize table acknowledges;
-update zabbix.ids set nextid = 1 where tablename = 'acknowledges';
+update zabbix.ids set nextid = 1 where table_name = 'acknowledges';
 
 truncate table auditlog; 
 optimize table auditlog;
-update zabbix.ids set nextid = 1 where tablename = 'auditlog';  
+update zabbix.ids set nextid = 1 where table_name = 'auditlog';  
 
 truncate table auditlog_details; 
 optimize table auditlog_details; 
-update zabbix.ids set nextid = 1 where tablename = 'auditlog_details'; 
+update zabbix.ids set nextid = 1 where table_name = 'auditlog_details'; 
 
 SET SQL_SAFE_UPDATES = 1;
 SET FOREIGN_KEY_CHECKS = 1;
