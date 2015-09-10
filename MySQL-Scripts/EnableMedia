@@ -1,0 +1,11 @@
+use zabbix;
+
+SET FOREIGN_KEY_CHECKS = 0;
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE zabbix.media m 
+INNER JOIN zabbix.users u on m.userid = u.userid
+SET active = 0;
+
+SET SQL_SAFE_UPDATES = 1;
+SET FOREIGN_KEY_CHECKS = 1;
