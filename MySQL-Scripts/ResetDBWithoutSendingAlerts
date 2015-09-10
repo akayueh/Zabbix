@@ -1,0 +1,45 @@
+use zabbix;
+
+SET FOREIGN_KEY_CHECKS = 0;
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE zabbix.media m 
+INNER JOIN zabbix.users u on m.userid = u.userid
+SET active = 1
+where u.name <> 'abc' and u.name <> 'efg';
+
+UPDATE zabbix.triggers 
+SET 
+    value = 0
+WHERE
+    value = 1;
+UPDATE zabbix.events set value =0 where value = 1;
+
+truncate table zabbix.events; 
+optimize table zabbix.events;
+
+truncate table zabbix.escalations; 
+optimize table zabbix.escalations;
+
+truncate table zabbix.alerts; 
+optimize table zabbix.alerts; 
+
+truncate table zabbix.housekeeper; 
+optimize table zabbix.housekeeper;
+update zabbix.ids set nextid = 1 where table_name = 'housekeeper'; 
+
+truncate table zabbix.acknowledges; 
+optimize table zabbix.acknowledges;
+update zabbix.ids set nextid = 1 where table_name = 'acknowledges';
+
+truncate table zabbix.auditlog; 
+optimize table zabbix.auditlog;
+update zabbix.ids set nextid = 1 where table_name = 'auditlog';  
+
+truncate table zabbix.auditlog_details; 
+optimize table zabbix.auditlog_details; 
+update zabbix.ids set nextid = 1 where table_name = 'auditlog_details';
+
+SET SQL_SAFE_UPDATES = 1;
+SET FOREIGN_KEY_CHECKS = 1;
+
